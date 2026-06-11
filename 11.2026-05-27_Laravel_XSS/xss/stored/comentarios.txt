@@ -1,0 +1,6 @@
+<script>alert('XSS Persistente!')</script>
+
+<script>document.body.innerHTML = "<h1>Sitio Web Intervenido</h1><p>Este sitio ya no es seguro.</p>";</script>
+comentario 1
+comentario 2
+comment 1
