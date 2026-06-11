@@ -1,12 +1,12 @@
 # Security Documentation: XSS & Brute Force Attacks
 
-This document provides a comprehensive summary of the security concepts, code examples, and exercises contained within the directories [11.2026-05-27_Laravel_XSS](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS) and [13.2026-06-10_Brute_Force_Attacks](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/13.2026-06-10_Brute_Force_Attacks).
+This document provides a comprehensive summary of the security concepts, code examples, and exercises contained within the directories [11.2026-05-27_Laravel_XSS](../11.2026-05-27_Laravel_XSS) and [13.2026-06-10_Brute_Force_Attacks](../13.2026-06-10_Brute_Force_Attacks).
 
 ---
 
 ## 1. Cross-Site Scripting (XSS)
-**Directory:** [11.2026-05-27_Laravel_XSS](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS)  
-**PDF Presentation:** [XSS.pdf](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/XSS.pdf) by Ing. Pável Cáceres
+**Directory:** [11.2026-05-27_Laravel_XSS](../11.2026-05-27_Laravel_XSS)  
+**PDF Presentation:** [XSS.pdf](../11.2026-05-27_Laravel_XSS/XSS.pdf) by Ing. Pável Cáceres
 
 ### Concept Definition
 **Cross-Site Scripting (XSS)** is a web application vulnerability that allows attackers to inject malicious scripts (usually JavaScript) into web pages viewed by other users. This bypasses the Same-Origin Policy (SOP) and can lead to session hijacking, defacement, or redirection to malicious sites.
@@ -22,8 +22,8 @@ There are two primary types covered in this module:
 #### ❌ Vulnerable Version
 In the vulnerable version, the name parameter is taken directly from the query string and printed back.
 
-*   **Form:** [formulario.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss/reflected/formulario.php)
-*   **Processor:** [procesar.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss/reflected/procesar.php)
+*   **Form:** [formulario.php](../11.2026-05-27_Laravel_XSS/xss/reflected/formulario.php)
+*   **Processor:** [procesar.php](../11.2026-05-27_Laravel_XSS/xss/reflected/procesar.php)
 
 ```php
 <?php
@@ -38,8 +38,8 @@ echo "Hola, $nombre!";
 ####  Secure Version
 The secure version escapes output special characters using `htmlspecialchars()`.
 
-*   **Form:** [formulario.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss-seguro/reflected/formulario.php)
-*   **Processor:** [procesar.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss-seguro/reflected/procesar.php)
+*   **Form:** [formulario.php](../11.2026-05-27_Laravel_XSS/xss-seguro/reflected/formulario.php)
+*   **Processor:** [procesar.php](../11.2026-05-27_Laravel_XSS/xss-seguro/reflected/procesar.php)
 
 ```php
 <?php
@@ -56,9 +56,9 @@ echo "Hola, $nombre!";
 #### ❌ Vulnerable Version
 Comments are saved raw into a text file and read back/displayed without escaping.
 
-*   **Form:** [formulario.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss/stored/formulario.php)
-*   **Saver:** [guardar.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss/stored/guardar.php)
-*   **Viewer:** [ver.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss/stored/ver.php)
+*   **Form:** [formulario.php](../11.2026-05-27_Laravel_XSS/xss/stored/formulario.php)
+*   **Saver:** [guardar.php](../11.2026-05-27_Laravel_XSS/xss/stored/guardar.php)
+*   **Viewer:** [ver.php](../11.2026-05-27_Laravel_XSS/xss/stored/ver.php)
 
 ```php
 // guardar.php
@@ -82,9 +82,9 @@ foreach ($comentarios as $comentario) {
 ####  Secure Version
 The secure version sanitizes the input before saving it by converting characters into HTML entities.
 
-*   **Form:** [formulario.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss-seguro/stored/formulario.php)
-*   **Saver:** [guardar.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss-seguro/stored/guardar.php)
-*   **Viewer:** [ver.php](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/11.2026-05-27_Laravel_XSS/xss-seguro/stored/ver.php)
+*   **Form:** [formulario.php](../11.2026-05-27_Laravel_XSS/xss-seguro/stored/formulario.php)
+*   **Saver:** [guardar.php](../11.2026-05-27_Laravel_XSS/xss-seguro/stored/guardar.php)
+*   **Viewer:** [ver.php](../11.2026-05-27_Laravel_XSS/xss-seguro/stored/ver.php)
 
 ```php
 // guardar.php
@@ -115,8 +115,8 @@ echo "Comentario guardado. <a href='ver.php'>Ver comentarios</a>";
 ---
 
 ## 2. Brute Force Attacks
-**Directory:** [13.2026-06-10_Brute_Force_Attacks](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/13.2026-06-10_Brute_Force_Attacks)  
-**PDF Presentation:** [ataquesFB.pdf](file:///Users/dennisvera/github/14.2026-06-11_quiz_2_XSS/13.2026-06-10_Brute_Force_Attacks/ataquesFB.pdf) by Ing. Pável Cáceres
+**Directory:** [13.2026-06-10_Brute_Force_Attacks](../13.2026-06-10_Brute_Force_Attacks)  
+**PDF Presentation:** [ataquesFB.pdf](../13.2026-06-10_Brute_Force_Attacks/ataquesFB.pdf) by Ing. Pável Cáceres
 
 ### Concept Definition
 A **Brute Force Attack** is a technique that consists of systematically trying all possible password combinations to guess system credentials.
